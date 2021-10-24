@@ -4,30 +4,47 @@ import { LinearGradient } from 'expo-linear-gradient';
 
 import { styles } from './styles';
 import { theme } from '../../global/styles/theme';
-import BackgroundImg from '../../assets/images/backgroundSecondaryColor.png';
+import BackgroundDetailsDark from '../../assets/images/background-details-dark.png';
+import BackgroundDetailsLight from '../../assets/images/background-details-light.png';
 import IllustrationImg from '../../assets/images/illustration.png';
 
 type BackgroundProps = {
 	children: ReactNode;
+	themeBackground: 'light' | 'dark';
 }
 
-export function Background({ children }: BackgroundProps) {
-	const { primary } = theme.colors;
+export function Background({ children, themeBackground }: BackgroundProps) {
+	const { primary, secondary } = theme.colors;
 
-	return (
-		<View style={styles.container}>
-			<ImageBackground
-				source={BackgroundImg}
-				style={styles.backgroundImage}
-			>
-				<Image source={IllustrationImg} style={styles.illustration}/>
-				<LinearGradient
-					style={styles.linearGradient}
-					colors={['transparent', primary, primary, primary]}
+	if(themeBackground === 'light'){
+		return (
+			<View style={[styles.background, {backgroundColor: primary}]}>
+				<ImageBackground
+					source={BackgroundDetailsDark}
+					style={styles.backgroundImage}
+				>
+					<Image source={IllustrationImg} style={styles.illustration} />
+					<LinearGradient
+						style={styles.linearGradient}
+						colors={['transparent', primary, primary, primary]}
+					>
+						{children}
+					</LinearGradient>
+				</ImageBackground>
+			</View>
+		);
+	} else {
+		return (
+			<View style={[styles.background, { backgroundColor: secondary }]}>
+				<ImageBackground
+					source={BackgroundDetailsLight}
+					style={styles.backgroundImage}
 				>
 					{children}
-				</LinearGradient>
-			</ImageBackground>
-		</View>
-	);
+				</ImageBackground>
+			</View>
+		);
+	}
+
+
 }

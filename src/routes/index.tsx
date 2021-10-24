@@ -1,12 +1,13 @@
 import React from 'react';
-import { Background } from '../components/Background';
-import { SignIn } from '../screens/SignIn';
-// import { SignUp } from '../screens/SignUp';
+import { NavigationContainer } from '@react-navigation/native';
+import { AppRoutes } from './app.routes';
+import { AccessRoutes } from './access.routes';
 
 export function Routes() {
 	return (
-		<Background>
-			<SignIn />
-		</Background>
+		<NavigationContainer >
+			{false ? <AccessRoutes /> : <AppRoutes/>}
+		</NavigationContainer>
+
 	);
 }
