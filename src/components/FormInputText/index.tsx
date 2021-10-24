@@ -14,7 +14,7 @@ export default function FormInputText({ title, icon, placeholder }: FormInputTex
 		<View>
 			<Text style={styles.inputTitle}>{title}</Text>
 			<View style={styles.inputSafeArea}>
-				<TextInput style={styles.textInput} placeholder={placeholder} />
+				<TextInput style={[styles.textInput, !icon ? { width: '100%' } : { width: '85%' }]} placeholder={placeholder} />
 				<View style={styles.infoIcon}>
 					{icon}
 				</View>

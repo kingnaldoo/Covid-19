@@ -4,6 +4,7 @@ import { Routes } from './src/routes';
 import { Nunito_400Regular, Nunito_700Bold, Nunito_800ExtraBold } from '@expo-google-fonts/nunito';
 import AppLoading from 'expo-app-loading';
 import { useFonts } from 'expo-font';
+import { theme } from './src/global/styles/theme';
 
 export default function App() {
 	const [fontsLoaded] = useFonts({
@@ -20,7 +21,7 @@ export default function App() {
 		<>
 			<StatusBar
 				barStyle="dark-content"
-				backgroundColor="transparent"
+				backgroundColor={theme.colors.primary}
 				translucent
 			/>
 			<Routes />

@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
 	},
 	inputSafeArea: {
 		width: '100%',
-		height: '50%',
+		height: 47,
 		borderRadius: 9,
 		borderWidth: 1,
 		shadowColor: '#000',
@@ -29,7 +29,7 @@ export const styles = StyleSheet.create({
 		paddingHorizontal: '4%'
 	},
 	textInput: {
-		width: '85%',
+
 		fontFamily: theme.fonts.text400
 	},
 	infoIcon: {

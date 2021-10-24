@@ -16,7 +16,7 @@ export const styles = StyleSheet.create({
 		justifyContent: 'space-between',
 	},
 	topContentForm: {
-		height: '60%'
+		height: '90%'
 	},
 	title: {
 		width: '90%',
@@ -26,19 +26,7 @@ export const styles = StyleSheet.create({
 		color: theme.colors.secondary
 	},
 	fieldGroup: {
-		height: '50%',
+		height: '65%',
 		justifyContent: 'space-between'
-	},
-	bottomContentForm: {
-		height: '15%',
-		justifyContent: 'space-between',
-		alignItems: 'center'
-	},
-	signUpText: {
-		fontSize: 17,
-		fontFamily: theme.fonts.text400
-	},
-	signUpLink: {
-		fontFamily: theme.fonts.title700
 	}
 });
