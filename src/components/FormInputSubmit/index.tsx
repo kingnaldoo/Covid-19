@@ -14,7 +14,7 @@ export default function FormInputSubmit({ title, color, ...rest }: FormInputSubm
 		<TouchableOpacity
 			style={[
 				styles.container,
-				color === 'primary' ? { backgroundColor: theme.colors.primary } : { backgroundColor: theme.colors.secondary }
+				color === 'primary' ? { backgroundColor: theme.colors.emphasis } : { backgroundColor: theme.colors.secondary }
 			]}
 			activeOpacity={0.9}
 			{...rest}

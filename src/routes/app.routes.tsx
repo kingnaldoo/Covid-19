@@ -7,12 +7,15 @@ import { Dimensions, Image, StatusBar } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 
 import ProfileImg from '../assets/images/profile.png';
+import { RegisterCitizen } from '../screens/RegisterCitizen';
+import { useNavigation } from '@react-navigation/native';
 
 const { Navigator, Screen } = createStackNavigator();
 
 Icon.loadFont();
 
 export function AppRoutes() {
+	const navigation = useNavigation();
 	return (
 		<>
 			<StatusBar
@@ -54,6 +57,34 @@ export function AppRoutes() {
 								style={{
 									marginRight: Dimensions.get('window').width * 0.075
 								}}
+							/>
+						},
+					}}
+				/>
+
+				<Screen
+					name='Register'
+					component={RegisterCitizen}
+					options={{
+						title: "Cadastrar cidadão",
+						headerStyle: {
+							backgroundColor: theme.colors.secondary,
+						},
+						headerTitleStyle: {
+							color: '#fff',
+							fontFamily: theme.fonts.title800,
+							fontSize: 14
+						},
+						headerTitleAlign: 'center',
+						headerLeft: () => {
+							return <Icon
+								name="chevron-left"
+								color="#fff"
+								size={26}
+								style={{
+									marginLeft: Dimensions.get('window').width * 0.075
+								}}
+								onPress={() => navigation.goBack()}
 							/>
 						},
 					}}

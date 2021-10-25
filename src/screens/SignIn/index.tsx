@@ -25,12 +25,14 @@ export function SignIn() {
 							<FormInputText
 								title="E-mail"
 								placeholder="meu_e-mail@gmail.com"
+								color="dark"
 								icon={<Icon name="info" size={25} color="#1B2735" />}
 							/>
 
 							<FormInputText
 								title="Senha"
 								placeholder="***************"
+								color="dark"
 								icon={<Icon name="eye" size={25} color="#1B2735" />}
 							/>
 						</View>

@@ -3,7 +3,6 @@ import { theme } from '../../global/styles/theme';
 
 export const styles = StyleSheet.create({
 	inputTitle: {
-		color: theme.colors.secondary,
 		fontSize: 17,
 		fontFamily: theme.fonts.title700,
 		marginBottom: 6,

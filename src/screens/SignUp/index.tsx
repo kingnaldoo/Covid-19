@@ -24,21 +24,25 @@ export function SignUp() {
 							<FormInputText
 								title="Nome completo"
 								placeholder="Digite o nome completo"
+								color="dark"
 							/>
 
 							<FormInputText
 								title="Número de telefone"
 								placeholder="(XX) 00000-0000"
+								color="dark"
 							/>
 
 							<FormInputText
 								title="E-mail"
 								placeholder="meu_e-mail@gmail.com"
+								color="dark"
 							/>
 
 							<FormInputText
 								title="Senha"
 								placeholder="***************"
+								color="dark"
 							/>
 						</View>
 					</View>
