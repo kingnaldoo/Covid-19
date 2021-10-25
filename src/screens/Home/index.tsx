@@ -3,7 +3,6 @@ import { View, ScrollView } from "react-native";
 import { Background } from "../../components/Background";
 import { UserCard } from "../../components/UserCard";
 
-
 import { styles } from "./styles";
 
 export function Home() {

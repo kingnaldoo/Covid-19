@@ -8,8 +8,8 @@ export const styles = StyleSheet.create({
 		backgroundColor: '#fff',
 		borderRadius: 15,
 		padding: 10,
-		marginBottom: 26,
-		flexDirection: 'row'
+		flexDirection: 'row',
+		marginVertical: 13
 	},
 	userInfo: {
 		justifyContent: 'space-between',
@@ -20,9 +20,6 @@ export const styles = StyleSheet.create({
 		fontFamily: theme.fonts.title600,
 		fontSize: 18,
 		color: theme.colors.secondary
-	},
-	userDescription: {
-
 	},
 	cpf: {
 		fontFamily: theme.fonts.text400,

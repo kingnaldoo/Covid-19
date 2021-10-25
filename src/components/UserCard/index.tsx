@@ -19,7 +19,7 @@ export function UserCard({username, cpf, birthDate, vaccineName, vaccineDose}: U
 			<View style={styles.userInfo}>
 				<Text style={styles.username}>{username}</Text>
 
-				<View style={styles.userDescription}>
+				<View>
 					<Text style={styles.cpf}>CPF: {cpf}</Text>
 					<Text style={styles.birthDate}>Data de Nascimento: {birthDate}</Text>
 				</View>

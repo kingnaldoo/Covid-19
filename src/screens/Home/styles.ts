@@ -2,11 +2,12 @@ import { Dimensions, StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
 	container: {
-		flex: 1,
-		paddingVertical: 20
+		maxHeight: '90%',
 	},
 	list: {
-		width: '85%',
+		width: '100%',
+		height: 'auto',
+		paddingHorizontal: '7.5%',
 		alignSelf: 'center'
 	},
 })
