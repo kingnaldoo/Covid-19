@@ -1,4 +1,3 @@
-import { useNavigation } from "@react-navigation/native";
 import React from "react";
 
 import { View, Text, ScrollView, TouchableOpacity } from "react-native";
@@ -8,8 +7,6 @@ import { UserCard } from "../../components/UserCard";
 import { styles } from "./styles";
 
 export function Home() {
-	const navigation = useNavigation();
-
 	return (
 		<Background themeBackground="dark">
 			<ScrollView style={styles.container}>
@@ -24,7 +21,7 @@ export function Home() {
 					/>
 				</View>
 			</ScrollView>
-			<TouchableOpacity activeOpacity={0.85} style={styles.button} onPress={() => navigation.navigate('Register')}>
+			<TouchableOpacity activeOpacity={0.85} style={styles.button} >
 				<Text style={styles.buttonText}>+</Text>
 			</TouchableOpacity>
 		</Background>

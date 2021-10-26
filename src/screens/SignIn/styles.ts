@@ -4,11 +4,8 @@ import { theme } from '../../global/styles/theme';
 export const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		height: Dimensions.get('window').height,
-		width: Dimensions.get('window').width,
-		justifyContent: 'flex-end',
-		alignItems: 'center',
-		paddingBottom: 20
+		justifyContent: 'center',
+		alignItems: 'stretch'
 	},
 	content: {
 		width: '85%',

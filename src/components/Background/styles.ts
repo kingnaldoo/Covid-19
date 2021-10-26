@@ -1,5 +1,4 @@
 import { Dimensions, StyleSheet } from 'react-native';
-import { theme } from '../../global/styles/theme';
 
 export const styles = StyleSheet.create({
 	background: {
@@ -16,6 +15,9 @@ export const styles = StyleSheet.create({
 		top: '6%'
 	},
 	linearGradient: {
-		flex: 1
+		flex: 1,
+		justifyContent: 'flex-end',
+		alignItems: 'center',
+		paddingBottom: 20
 	}
 });

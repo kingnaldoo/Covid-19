@@ -6,7 +6,7 @@ import { AccessRoutes } from './access.routes';
 export function Routes() {
 	return (
 		<NavigationContainer >
-			{false ? <AccessRoutes /> : <AppRoutes/>}
+			{true ? <AccessRoutes /> : <AppRoutes/>}
 		</NavigationContainer>
 
 	);
