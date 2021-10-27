@@ -1,10 +1,7 @@
 import React from 'react';
 import { Dimensions, Image, StatusBar } from 'react-native';
 
-import { useNavigation } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { Home } from '../screens/Home';
 import { RegisterCitizen } from '../screens/RegisterCitizen';
@@ -20,9 +17,8 @@ import { theme } from '../global/styles/theme';
 import { getFirstName } from '../utils/name';
 
 
-export function AppRoutes() {
+export function AppRoutes({navigation}: any) {
 	const { Navigator, Screen } = createStackNavigator();
-	const navigation = useNavigation();
 	const auth = useAuth();
 
 	Icon.loadFont();

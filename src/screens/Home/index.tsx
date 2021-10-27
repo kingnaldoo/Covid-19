@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { View, Text, ScrollView, TouchableOpacity } from "react-native";
 
-import { useNavigation } from "@react-navigation/native";
-
 import { Background } from "../../components/Background";
 import { UserCard } from "../../components/UserCard";
 
@@ -10,9 +8,8 @@ import { styles } from "./styles";
 import { useCitizen } from "../../hooks/useCitizen";
 import { CitizenResponseProps } from "../../contexts/citizenContext";
 
-export function Home() {
+export function Home({navigation}: any) {
 	const citizen = useCitizen()
-	const navigation = useNavigation();
 
 	const [citizensList, setCitizensList] = useState<CitizenResponseProps[]>([])
 
@@ -44,7 +41,6 @@ export function Home() {
 			<TouchableOpacity
 				activeOpacity={0.85}
 				style={styles.button}
-				// @ts-ignore
 				onPress={() => navigation.navigate("Register")}
 			>
 				<Text style={styles.buttonText}>+</Text>

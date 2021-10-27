@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { View } from "react-native";
 
-import { useNavigation } from "@react-navigation/native";
-
 import { Background } from "../../components/Background";
 import FormInputSubmit from "../../components/FormInputSubmit";
 import FormInputText from "../../components/FormInputText";
@@ -12,9 +10,8 @@ import { styles } from './styles';
 import { validateBirthDate, validateCpf } from "../../utils/validation";
 import { useCitizen } from "../../hooks/useCitizen";
 
-export function RegisterCitizen() {
+export function RegisterCitizen({navigation}: any) {
 	const citizen = useCitizen();
-	const navigation = useNavigation();
 
 	const [name, setName] = useState('');
 	const [cpf, setCpf] = useState('');
@@ -25,7 +22,6 @@ export function RegisterCitizen() {
 	function handleRegisterCitizen() {
 		citizen.registerCitizen({ name, cpf, birthDate, vaccineName, vaccineDose })
 			.then(() => {
-				{/* @ts-ignore */ }
 				navigation.navigate("Home")
 			})
 			.catch(() => {

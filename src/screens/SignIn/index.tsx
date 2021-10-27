@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { KeyboardAvoidingView, Text, View } from 'react-native';
 
-import { useNavigation } from '@react-navigation/native';
-
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { Background } from '../../components/Background';
@@ -16,9 +14,8 @@ import { useAuth } from '../../hooks/useAuth';
 
 import { styles } from './styles';
 
-export function SignIn() {
+export function SignIn({navigation}: any) {
 	const auth = useAuth();
-	const navigation = useNavigation();
 
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
@@ -66,7 +63,6 @@ export function SignIn() {
 					<View style={styles.bottomContentForm}>
 						<FormInputSubmit title="Entrar" color="secondary" onPress={handleSignIn} />
 
-						{/*@ts-ignore */}
 						<Text style={styles.signUpText}>Não possui cadastro? <Text style={styles.signUpLink} onPress={() => navigation.navigate('SignUp')}>Clique aqui</Text></Text>
 					</View>
 				</View>

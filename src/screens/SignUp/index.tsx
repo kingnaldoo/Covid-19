@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { KeyboardAvoidingView, Text, View } from 'react-native';
 
-import { useNavigation } from '@react-navigation/native';
-
 import { Background } from '../../components/Background';
 import FormInputSubmit from '../../components/FormInputSubmit';
 import FormInputText from '../../components/FormInputText';
@@ -12,9 +10,8 @@ import Icon from 'react-native-vector-icons/Feather';
 import { styles } from './styles';
 import { useAuth } from '../../hooks/useAuth';
 
-export function SignUp() {
+export function SignUp({navigation}: any) {
 	const auth = useAuth();
-	const navigation = useNavigation();
 
 	const [name, setName] = useState('')
 	const [email, setEmail] = useState('')
@@ -25,7 +22,6 @@ export function SignUp() {
 	async function handleSignUp() {
 		auth.handleSignUp({ name, email, password })
 			.then(() => {
-				{/* @ts-ignore */ }
 				navigation.navigate('SignIn')
 			})
 			.catch(() => {
