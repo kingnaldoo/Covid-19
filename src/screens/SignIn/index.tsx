@@ -3,6 +3,8 @@ import { KeyboardAvoidingView, Text, View } from 'react-native';
 
 import { useNavigation } from '@react-navigation/native';
 
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import { Background } from '../../components/Background';
 import FormInputSubmit from '../../components/FormInputSubmit';
 import FormInputText from '../../components/FormInputText';
@@ -26,13 +28,13 @@ export function SignIn() {
 
 	function handleSignIn() {
 		signIn({ email, password })
-			.then(e => {
-				// await AsyncStorage.setItem("USER_DATA", JSON.stringify(e.user));
-				auth.setUser(e.user);
-				auth.setToken(e.token);
+			.then(async (authData) => {
+				await AsyncStorage.setItem("AUTH_DATA", JSON.stringify(authData));
+				auth.setUser(authData.user);
+				auth.setToken(authData.token);
 			})
 			.catch(() => {
-				console.log('deu erro ;-;')
+				console.log('ocorreu um erro')
 			})
 	}
 

@@ -10,6 +10,7 @@ import FormInputText from "../../components/FormInputText";
 import { registerCitizen } from "../../services/citizen";
 
 import { styles } from './styles';
+import { validateBirthDate, validateCpf } from "../../utils/validation";
 
 export function RegisterCitizen() {
 	const navigation = useNavigation();
@@ -20,14 +21,16 @@ export function RegisterCitizen() {
 	const [vaccineName, setVaccineName] = useState('');
 	const [vaccineDose, setVaccineDose] = useState('');
 
-	registerCitizen({ name, cpf, birthDate, vaccineName, vaccineDose })
-		.then(() => {
-			{/* @ts-ignore */ }
-			navigation.navigate("Home")
-		})
-		.catch(() => {
-			console.log('nao foi possivel cadastrar cidadao')
-		})
+	function handleRegisterCitizen() {
+		registerCitizen({ name, cpf, birthDate, vaccineName, vaccineDose })
+			.then(() => {
+				{/* @ts-ignore */ }
+				navigation.navigate("Home")
+			})
+			.catch(() => {
+				console.log('nao foi possivel cadastrar cidadao')
+			})
+	}
 
 	return (
 		<Background themeBackground="dark">
@@ -44,14 +47,14 @@ export function RegisterCitizen() {
 						title="CPF"
 						placeholder="000.000.000-00"
 						color="light"
-						onChangeText={(text) => setCpf(text)}
+						onChangeText={(text) => setCpf(validateCpf(text))}
 					/>
 
 					<FormInputText
 						title="Data de nascimento"
 						placeholder="00/00/0000"
 						color="light"
-						onChangeText={(text) => setBirthDate(text)}
+						onChangeText={(text) => setBirthDate(validateBirthDate(text))}
 					/>
 
 					<FormInputText
@@ -72,7 +75,7 @@ export function RegisterCitizen() {
 				<FormInputSubmit
 					title="Cadastrar cidadão"
 					color="primary"
-					onPress={() => registerCitizen}
+					onPress={() => handleRegisterCitizen}
 				/>
 			</View>
 		</Background>

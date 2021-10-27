@@ -29,9 +29,10 @@ export function UserContextProvider({ children }: AuthProviderProps) {
 
 	useEffect(() => {
 		async function verifySignIn() {
-			const user = await AsyncStorage.getItem('USER_DATA')
-			if (user) {
-				setUser(JSON.parse(user));
+			const authData = await AsyncStorage.getItem('AUTH_DATA')
+			if (authData) {
+				setUser(JSON.parse(authData).user);
+				setToken(JSON.parse(authData).token)
 			}
 		}
 

@@ -26,7 +26,7 @@ export const styles = StyleSheet.create({
 		color: theme.colors.secondary
 	},
 	fieldGroup: {
-		height: '65%',
+		height: '48%',
 		justifyContent: 'space-between'
 	}
 });
