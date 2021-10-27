@@ -1,7 +1,8 @@
 import React from 'react';
-import {  Text, TouchableOpacity, TouchableOpacityProps } from 'react-native';
-import { theme } from '../../global/styles/theme';
+import { Text, TouchableOpacity, TouchableOpacityProps } from "react-native";
+
 import { styles } from './styles';
+import { theme } from '../../global/styles/theme';
 
 interface FormInputSubmitProps extends TouchableOpacityProps {
 	title: string;
@@ -9,8 +10,7 @@ interface FormInputSubmitProps extends TouchableOpacityProps {
 }
 
 export default function FormInputSubmit({ title, color, ...rest }: FormInputSubmitProps) {
-
-	return(
+	return (
 		<TouchableOpacity
 			style={[
 				styles.container,

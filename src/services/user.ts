@@ -1,6 +1,6 @@
 import { AxiosResponse } from "axios";
-import { User } from "../contexts/authContext";
 import { api } from "./api";
+import { User } from "../contexts/authContext";
 
 type SignInProps = {
 	email: string;
@@ -26,7 +26,7 @@ type SignUpResponseProps = {
 	updated_at: string
 }
 
-export async function signIn({email, password}: SignInProps): Promise<SignInResponseProps> {
+export async function signIn({ email, password }: SignInProps): Promise<SignInResponseProps> {
 	const signInResponse: AxiosResponse = await api.post('/sessions/login', {
 		email,
 		password

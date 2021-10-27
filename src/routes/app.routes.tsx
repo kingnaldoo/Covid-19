@@ -1,21 +1,33 @@
 import React from 'react';
+import { Dimensions, Image, StatusBar } from 'react-native';
+
+import { useNavigation } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import { Home } from '../screens/Home';
-import { theme } from '../global/styles/theme';
-import { Dimensions, Image, StatusBar } from 'react-native';
-import Icon from 'react-native-vector-icons/Feather';
-
-import ProfileImg from '../assets/images/profile.png';
 import { RegisterCitizen } from '../screens/RegisterCitizen';
-import { useNavigation } from '@react-navigation/native';
 
-const { Navigator, Screen } = createStackNavigator();
+import { User } from '../contexts/authContext';
 
-Icon.loadFont();
+import { useAuth } from '../hooks/useAuth';
+
+import Icon from 'react-native-vector-icons/Feather';
+import ProfileImg from '../assets/images/profile.png';
+
+import { theme } from '../global/styles/theme';
+import { getFirstName } from '../utils/name';
 
 export function AppRoutes() {
+	const { Navigator, Screen } = createStackNavigator();
 	const navigation = useNavigation();
+	const auth = useAuth();
+
+	Icon.loadFont();
+
+	function handleSignOut() {
+		auth.setUser({} as User);
+	}
+
 	return (
 		<>
 			<StatusBar
@@ -29,7 +41,7 @@ export function AppRoutes() {
 					name='Home'
 					component={Home}
 					options={{
-						title: 'Bem vindo, Fulano',
+						title: `Bem vindo, ${getFirstName(auth.user.name)}`,
 						headerStyle: {
 							backgroundColor: theme.colors.secondary,
 						},
@@ -45,7 +57,7 @@ export function AppRoutes() {
 								style={{
 									height: 38,
 									width: 38,
-									marginLeft: Dimensions.get('window').width*0.075
+									marginLeft: Dimensions.get('window').width * 0.075
 								}}
 							/>
 						},
@@ -57,6 +69,7 @@ export function AppRoutes() {
 								style={{
 									marginRight: Dimensions.get('window').width * 0.075
 								}}
+								onPress={() => handleSignOut()}
 							/>
 						},
 					}}

@@ -1,14 +1,16 @@
 import React from 'react';
+import { StatusBar } from 'react-native';
+
 import { createStackNavigator } from '@react-navigation/stack';
 
 import { SignIn } from '../screens/SignIn';
 import { SignUp } from '../screens/SignUp';
-import { StatusBar } from 'react-native';
+
 import { theme } from '../global/styles/theme';
 
-const { Navigator, Screen } = createStackNavigator();
+export function AuthRoutes() {
+	const { Navigator, Screen } = createStackNavigator();
 
-export function AccessRoutes() {
 	return (
 		<>
 			<StatusBar

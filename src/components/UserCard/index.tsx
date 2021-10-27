@@ -13,8 +13,8 @@ type UserCardProps = {
 	vaccineDose: string;
 }
 
-export function UserCard({username, cpf, birthDate, vaccineName, vaccineDose}: UserCardProps) {
-	return(
+export function UserCard({ username, cpf, birthDate, vaccineName, vaccineDose }: UserCardProps) {
+	return (
 		<View style={styles.userCard}>
 			<View style={styles.userInfo}>
 				<Text style={styles.username}>{username}</Text>
