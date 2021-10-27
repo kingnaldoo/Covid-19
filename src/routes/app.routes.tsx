@@ -27,11 +27,6 @@ export function AppRoutes() {
 
 	Icon.loadFont();
 
-	async function handleSignOut() {
-		await AsyncStorage.removeItem("AUTH_DATA");
-		auth.setUser({} as User);
-	}
-
 	return (
 		<>
 			<StatusBar
@@ -73,7 +68,7 @@ export function AppRoutes() {
 								style={{
 									marginRight: Dimensions.get('window').width * 0.075
 								}}
-								onPress={() => handleSignOut()}
+								onPress={() => auth.handleSignOut()}
 							/>
 						},
 					}}

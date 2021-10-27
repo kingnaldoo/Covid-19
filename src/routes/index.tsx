@@ -1,4 +1,5 @@
 import React from 'react';
+import { CitizenContextProvider } from '../contexts/citizenContext';
 
 import { useAuth } from '../hooks/useAuth';
 
@@ -7,5 +8,9 @@ import { AuthRoutes } from './auth.routes';
 
 export function Routes() {
 	const auth = useAuth();
-	return auth.user.id ? <AppRoutes /> : <AuthRoutes />;
+	return auth.user.id ?
+		<CitizenContextProvider>
+			<AppRoutes />
+		</CitizenContextProvider> :
+		<AuthRoutes />;
 }

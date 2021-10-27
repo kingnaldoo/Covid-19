@@ -9,11 +9,11 @@ import FormInputText from '../../components/FormInputText';
 
 import Icon from 'react-native-vector-icons/Feather';
 
-import { signUp } from '../../services/user';
-
 import { styles } from './styles';
+import { useAuth } from '../../hooks/useAuth';
 
 export function SignUp() {
+	const auth = useAuth();
 	const navigation = useNavigation();
 
 	const [name, setName] = useState('')
@@ -23,7 +23,7 @@ export function SignUp() {
 	Icon.loadFont();
 
 	async function handleSignUp() {
-		signUp({ name, email, password })
+		auth.handleSignUp({ name, email, password })
 			.then(() => {
 				{/* @ts-ignore */ }
 				navigation.navigate('SignIn')

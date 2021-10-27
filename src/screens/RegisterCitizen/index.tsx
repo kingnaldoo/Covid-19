@@ -7,12 +7,13 @@ import { Background } from "../../components/Background";
 import FormInputSubmit from "../../components/FormInputSubmit";
 import FormInputText from "../../components/FormInputText";
 
-import { registerCitizen } from "../../services/citizen";
 
 import { styles } from './styles';
 import { validateBirthDate, validateCpf } from "../../utils/validation";
+import { useCitizen } from "../../hooks/useCitizen";
 
 export function RegisterCitizen() {
+	const citizen = useCitizen();
 	const navigation = useNavigation();
 
 	const [name, setName] = useState('');
@@ -22,7 +23,7 @@ export function RegisterCitizen() {
 	const [vaccineDose, setVaccineDose] = useState('');
 
 	function handleRegisterCitizen() {
-		registerCitizen({ name, cpf, birthDate, vaccineName, vaccineDose })
+		citizen.registerCitizen({ name, cpf, birthDate, vaccineName, vaccineDose })
 			.then(() => {
 				{/* @ts-ignore */ }
 				navigation.navigate("Home")
@@ -75,7 +76,7 @@ export function RegisterCitizen() {
 				<FormInputSubmit
 					title="Cadastrar cidadão"
 					color="primary"
-					onPress={() => handleRegisterCitizen}
+					onPress={() => handleRegisterCitizen()}
 				/>
 			</View>
 		</Background>

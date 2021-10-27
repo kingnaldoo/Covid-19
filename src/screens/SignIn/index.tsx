@@ -13,7 +13,6 @@ import Icon from 'react-native-vector-icons/Feather';
 
 import { useAuth } from '../../hooks/useAuth';
 
-import { signIn } from '../../services/user';
 
 import { styles } from './styles';
 
@@ -27,7 +26,7 @@ export function SignIn() {
 	Icon.loadFont();
 
 	function handleSignIn() {
-		signIn({ email, password })
+		auth.handleSignIn({ email, password })
 			.then(async (authData) => {
 				await AsyncStorage.setItem("AUTH_DATA", JSON.stringify(authData));
 				auth.setUser(authData.user);

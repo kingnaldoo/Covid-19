@@ -7,14 +7,16 @@ import { Background } from "../../components/Background";
 import { UserCard } from "../../components/UserCard";
 
 import { styles } from "./styles";
-import { CitizenResponseProps, getCitizens } from "../../services/citizen";
+import { useCitizen } from "../../hooks/useCitizen";
+import { CitizenResponseProps } from "../../contexts/citizenContext";
 
 export function Home() {
+	const citizen = useCitizen()
 	const navigation = useNavigation();
 
 	const [citizensList, setCitizensList] = useState<CitizenResponseProps[]>([])
 
-	getCitizens()
+	citizen.getCitizens()
 		.then(data => {
 			setCitizensList(data)
 		})
