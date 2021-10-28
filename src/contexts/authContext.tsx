@@ -1,8 +1,10 @@
-import React, { createContext, ReactNode, useEffect, useState } from "react";
+import React, { createContext, ReactNode, useEffect, useState } from 'react';
 
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { AxiosResponse } from "axios";
-import { api } from "../services/api";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+import { AxiosResponse } from 'axios';
+
+import { api } from '../services/api';
 
 export type User = {
 	id: number,
@@ -50,7 +52,7 @@ type SignUpResponseProps = {
 	updated_at: string
 }
 
-export const AuthContext = createContext({} as UserContextProps)
+export const AuthContext = createContext({} as UserContextProps);
 
 export function UserContextProvider({ children }: AuthProviderProps) {
 	const [user, setUser] = useState<User>({} as User);
@@ -58,21 +60,21 @@ export function UserContextProvider({ children }: AuthProviderProps) {
 
 	useEffect(() => {
 		async function verifySignIn() {
-			const authData = await AsyncStorage.getItem('AUTH_DATA')
+			const authData = await AsyncStorage.getItem('AUTH_DATA');
 			if (authData) {
 				setUser(JSON.parse(authData).user);
-				setToken(JSON.parse(authData).token)
+				setToken(JSON.parse(authData).token);
 			}
 		}
 
-		verifySignIn()
-	}, [])
+		verifySignIn();
+	}, []);
 
 	async function handleSignIn({ email, password }: SignInProps): Promise<SignInResponseProps> {
 		const signInResponse: AxiosResponse = await api.post('/sessions/login', {
 			email,
 			password
-		})
+		});
 
 		return signInResponse.data;
 	}
@@ -82,13 +84,13 @@ export function UserContextProvider({ children }: AuthProviderProps) {
 			name,
 			email,
 			password
-		})
+		});
 
 		return signUpResponse.data;
 	}
 
 	async function handleSignOut() {
-		await AsyncStorage.removeItem("AUTH_DATA");
+		await AsyncStorage.removeItem('AUTH_DATA');
 		setUser({} as User);
 	}
 
@@ -96,5 +98,5 @@ export function UserContextProvider({ children }: AuthProviderProps) {
 		<AuthContext.Provider value={{ user, setUser, token, setToken, handleSignIn, handleSignUp, handleSignOut }}>
 			{children}
 		</AuthContext.Provider>
-	)
+	);
 }

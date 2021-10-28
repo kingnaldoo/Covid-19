@@ -1,8 +1,9 @@
 import React from 'react';
-import { Text, TouchableOpacity, TouchableOpacityProps } from "react-native";
+import { Text, TouchableOpacity, TouchableOpacityProps } from 'react-native';
+
+import { theme } from '../../global/styles/theme';
 
 import { styles } from './styles';
-import { theme } from '../../global/styles/theme';
 
 interface FormInputSubmitProps extends TouchableOpacityProps {
 	title: string;

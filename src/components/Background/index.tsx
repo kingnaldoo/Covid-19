@@ -1,10 +1,10 @@
 import React, { ReactNode } from 'react';
-import { Image, ImageBackground, View } from 'react-native';
+import { ImageBackground, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
 import BackgroundDetailsDark from '../../assets/images/background-details-dark.png';
 import BackgroundDetailsLight from '../../assets/images/background-details-light.png';
-import IllustrationImg from '../../assets/images/illustration.png';
+import IllustrationImg from '../../assets/icons/illustration.svg';
 
 import { styles } from './styles';
 import { theme } from '../../global/styles/theme';
@@ -24,7 +24,7 @@ export function Background({ children, themeBackground }: BackgroundProps) {
 					source={BackgroundDetailsDark}
 					style={styles.backgroundImage}
 				>
-					<Image source={IllustrationImg} style={styles.illustration} />
+					<IllustrationImg style={styles.illustration} />
 					<LinearGradient
 						style={styles.linearGradient}
 						colors={['transparent', primary, primary, primary]}

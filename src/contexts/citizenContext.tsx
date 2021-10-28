@@ -1,7 +1,10 @@
-import React, { createContext, ReactNode, useState } from "react";
-import { AxiosResponse } from "axios";
-import { useAuth } from "../hooks/useAuth";
-import { api } from "../services/api";
+import React, { createContext, ReactNode } from 'react';
+
+import { useAuth } from '../hooks/useAuth';
+
+import { AxiosResponse } from 'axios';
+
+import { api } from '../services/api';
 
 type CitizenProps = {
 	name: string;
@@ -22,11 +25,11 @@ type CitizenProviderProps = {
 }
 
 type CitizenContextProps = {
-	getCitizens: () =>  Promise<CitizenResponseProps[]>;
-	registerCitizen: ({name, cpf, birthDate, vaccineName, vaccineDose}: CitizenProps) => Promise<CitizenResponseProps>;
+	getCitizens: () => Promise<CitizenResponseProps[]>;
+	registerCitizen: ({ name, cpf, birthDate, vaccineName, vaccineDose }: CitizenProps) => Promise<CitizenResponseProps>;
 }
 
-export const CitizenContext = createContext({} as CitizenContextProps)
+export const CitizenContext = createContext({} as CitizenContextProps);
 
 export function CitizenContextProvider({ children }: CitizenProviderProps) {
 	const auth = useAuth();
@@ -36,17 +39,17 @@ export function CitizenContextProvider({ children }: CitizenProviderProps) {
 			headers: {
 				Authorization: `Bearer ${auth.token}`
 			}
-		})
+		});
 
 		return citizenResponse.data;
 	}
 
 	async function registerCitizen({ name, cpf, birthDate, vaccineName, vaccineDose }: CitizenProps): Promise<CitizenResponseProps> {
-		cpf = cpf.replace(/[^\d]/g, "");
+		cpf = cpf.replace(/[^\d]/g, '');
 
 		birthDate = new Date(
 			parseInt(birthDate.substring(6, 10)),
-			parseInt(birthDate.substring(3, 5))-1,
+			parseInt(birthDate.substring(3, 5)) - 1,
 			parseInt(birthDate.substring(0, 2)),
 		).toString();
 
@@ -56,13 +59,13 @@ export function CitizenContextProvider({ children }: CitizenProviderProps) {
 			birthDate,
 			vaccineName,
 			vaccineDose
-		}
+		};
 
 		const citizenResponse: AxiosResponse = await api.post('/citizens', data, {
 			headers: {
 				Authorization: `Bearer ${auth.token}`
 			}
-		})
+		});
 
 		return citizenResponse.data;
 	}
@@ -71,5 +74,5 @@ export function CitizenContextProvider({ children }: CitizenProviderProps) {
 		<CitizenContext.Provider value={{ getCitizens, registerCitizen }}>
 			{children}
 		</CitizenContext.Provider>
-	)
+	);
 }

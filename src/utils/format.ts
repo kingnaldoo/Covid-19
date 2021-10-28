@@ -3,10 +3,10 @@ export function formatBirthDate(birthDate: string) {
 
 	function addZero(data: number) {
 		if (data.toString().length < 2)
-			return `0${data}`
+			return `0${data}`;
 		else
-			return data
+			return data;
 	}
 
-	return `${addZero(date.getDate())}/${addZero(date.getMonth() + 1)}/${date.getFullYear()}`
+	return `${addZero(date.getDate())}/${addZero(date.getMonth() + 1)}/${date.getFullYear()}`;
 }

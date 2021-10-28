@@ -1,30 +1,32 @@
-import React, { useState } from "react";
-import { View, Text, ScrollView, TouchableOpacity } from "react-native";
+import React, { useState } from 'react';
+import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
 
-import { Background } from "../../components/Background";
-import { UserCard } from "../../components/UserCard";
+import { Background } from '../../components/Background';
+import { UserCard } from '../../components/UserCard';
 
-import { styles } from "./styles";
-import { useCitizen } from "../../hooks/useCitizen";
-import { CitizenResponseProps } from "../../contexts/citizenContext";
+import { CitizenResponseProps } from '../../contexts/citizenContext';
 
-export function Home({navigation}: any) {
-	const citizen = useCitizen()
+import { useCitizen } from '../../hooks/useCitizen';
 
-	const [citizensList, setCitizensList] = useState<CitizenResponseProps[]>([])
+import { styles } from './styles';
+
+export function Home({ navigation }: any) {
+	const citizen = useCitizen();
+
+	const [citizensList, setCitizensList] = useState<CitizenResponseProps[]>([]);
 
 	citizen.getCitizens()
 		.then(data => {
-			setCitizensList(data)
+			setCitizensList(data);
 		})
-		.catch(() => console.log('ocorreu um erro na requisição'))
+		.catch(() => console.log('ocorreu um erro na requisição'));
 
 	return (
 		<Background themeBackground="dark">
 			<ScrollView style={styles.container}>
 				<View style={styles.list}>
 					{citizensList.map(citizen => {
-						return(
+						return (
 							<UserCard
 								key={citizen.id}
 								username={citizen.name}
@@ -33,7 +35,7 @@ export function Home({navigation}: any) {
 								vaccineName={citizen.vaccineName}
 								vaccineDose={citizen.vaccineDose}
 							/>
-						)
+						);
 					})}
 				</View>
 			</ScrollView>
@@ -41,10 +43,10 @@ export function Home({navigation}: any) {
 			<TouchableOpacity
 				activeOpacity={0.85}
 				style={styles.button}
-				onPress={() => navigation.navigate("Register")}
+				onPress={() => navigation.navigate('Register')}
 			>
 				<Text style={styles.buttonText}>+</Text>
 			</TouchableOpacity>
 		</Background>
-	)
+	);
 }

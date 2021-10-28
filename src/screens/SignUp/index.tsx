@@ -7,26 +7,27 @@ import FormInputText from '../../components/FormInputText';
 
 import Icon from 'react-native-vector-icons/Feather';
 
-import { styles } from './styles';
 import { useAuth } from '../../hooks/useAuth';
 
-export function SignUp({navigation}: any) {
+import { styles } from './styles';
+
+export function SignUp({ navigation }: any) {
 	const auth = useAuth();
 
-	const [name, setName] = useState('')
-	const [email, setEmail] = useState('')
-	const [password, setPassword] = useState('')
+	const [name, setName] = useState('');
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
 
 	Icon.loadFont();
 
 	async function handleSignUp() {
 		auth.handleSignUp({ name, email, password })
 			.then(() => {
-				navigation.navigate('SignIn')
+				navigation.navigate('SignIn');
 			})
 			.catch(() => {
-				console.log('nao foi possivel fazer o cadastro')
-			})
+				console.log('nao foi possivel fazer o cadastro');
+			});
 	}
 
 	return (

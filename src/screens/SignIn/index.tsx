@@ -11,27 +11,26 @@ import Icon from 'react-native-vector-icons/Feather';
 
 import { useAuth } from '../../hooks/useAuth';
 
-
 import { styles } from './styles';
 
-export function SignIn({navigation}: any) {
+export function SignIn({ navigation }: any) {
 	const auth = useAuth();
 
-	const [email, setEmail] = useState('')
-	const [password, setPassword] = useState('')
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
 
 	Icon.loadFont();
 
 	function handleSignIn() {
 		auth.handleSignIn({ email, password })
-			.then(async (authData) => {
-				await AsyncStorage.setItem("AUTH_DATA", JSON.stringify(authData));
+			.then(async(authData) => {
+				await AsyncStorage.setItem('AUTH_DATA', JSON.stringify(authData));
 				auth.setUser(authData.user);
 				auth.setToken(authData.token);
 			})
 			.catch(() => {
-				console.log('ocorreu um erro')
-			})
+				console.log('ocorreu um erro');
+			});
 	}
 
 	return (

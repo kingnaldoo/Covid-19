@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text } from 'react-native';
 
 import VaccineIcon from '../../assets/icons/vaccine.svg';
+
 import { formatBirthDate } from '../../utils/format';
 import { validateCpf } from '../../utils/validation';
 

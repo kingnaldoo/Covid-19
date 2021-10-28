@@ -1,16 +1,17 @@
-import React, { useState } from "react";
-import { View } from "react-native";
+import React, { useState } from 'react';
+import { View } from 'react-native';
 
-import { Background } from "../../components/Background";
-import FormInputSubmit from "../../components/FormInputSubmit";
-import FormInputText from "../../components/FormInputText";
+import { Background } from '../../components/Background';
+import FormInputSubmit from '../../components/FormInputSubmit';
+import FormInputText from '../../components/FormInputText';
 
+import { useCitizen } from '../../hooks/useCitizen';
+
+import { validateBirthDate, validateCpf } from '../../utils/validation';
 
 import { styles } from './styles';
-import { validateBirthDate, validateCpf } from "../../utils/validation";
-import { useCitizen } from "../../hooks/useCitizen";
 
-export function RegisterCitizen({navigation}: any) {
+export function RegisterCitizen({ navigation }: any) {
 	const citizen = useCitizen();
 
 	const [name, setName] = useState('');
@@ -22,11 +23,11 @@ export function RegisterCitizen({navigation}: any) {
 	function handleRegisterCitizen() {
 		citizen.registerCitizen({ name, cpf, birthDate, vaccineName, vaccineDose })
 			.then(() => {
-				navigation.navigate("Home")
+				navigation.navigate('Home');
 			})
 			.catch(() => {
-				console.log('nao foi possivel cadastrar cidadao')
-			})
+				console.log('nao foi possivel cadastrar cidadao');
+			});
 	}
 
 	return (
@@ -76,5 +77,5 @@ export function RegisterCitizen({navigation}: any) {
 				/>
 			</View>
 		</Background>
-	)
+	);
 }

@@ -1,23 +1,21 @@
 import React from 'react';
-import { Dimensions, Image, StatusBar } from 'react-native';
+import { Dimensions, StatusBar } from 'react-native';
 
 import { createStackNavigator } from '@react-navigation/stack';
 
 import { Home } from '../screens/Home';
 import { RegisterCitizen } from '../screens/RegisterCitizen';
 
-import { User } from '../contexts/authContext';
-
 import { useAuth } from '../hooks/useAuth';
 
 import Icon from 'react-native-vector-icons/Feather';
-import ProfileImg from '../assets/images/profile.png';
+import ProfileImg from '../assets/icons/profile.svg';
 
-import { theme } from '../global/styles/theme';
 import { getFirstName } from '../utils/name';
 
+import { theme } from '../global/styles/theme';
 
-export function AppRoutes({navigation}: any) {
+export function AppRoutes({ navigation }: any) {
 	const { Navigator, Screen } = createStackNavigator();
 	const auth = useAuth();
 
@@ -47,14 +45,13 @@ export function AppRoutes({navigation}: any) {
 						},
 						headerTitleAlign: 'center',
 						headerLeft: () => {
-							return <Image
-								source={ProfileImg}
+							return <ProfileImg
 								style={{
 									height: 38,
 									width: 38,
 									marginLeft: Dimensions.get('window').width * 0.075
 								}}
-							/>
+							/>;
 						},
 						headerRight: () => {
 							return <Icon
@@ -65,7 +62,7 @@ export function AppRoutes({navigation}: any) {
 									marginRight: Dimensions.get('window').width * 0.075
 								}}
 								onPress={() => auth.handleSignOut()}
-							/>
+							/>;
 						},
 					}}
 				/>
@@ -74,7 +71,7 @@ export function AppRoutes({navigation}: any) {
 					name='Register'
 					component={RegisterCitizen}
 					options={{
-						title: "Cadastrar cidadão",
+						title: 'Cadastrar cidadão',
 						headerStyle: {
 							backgroundColor: theme.colors.secondary,
 						},
@@ -93,7 +90,7 @@ export function AppRoutes({navigation}: any) {
 									marginLeft: Dimensions.get('window').width * 0.075
 								}}
 								onPress={() => navigation.goBack()}
-							/>
+							/>;
 						},
 					}}
 				/>
