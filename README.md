@@ -45,11 +45,11 @@ The allows the user to have easy access to the registration of vaccinated citize
 
 | Requisites | Description | Function | File | Status
 | --- | --- | --- | --- | --- |
-| RNF0001 | Create account | handleSignUp() | <a href="https://github.com/kingnaldoo/Covid-19/blob/main/src/contexts/authContext.tsx">authContext.tsx</a> | <li align="center">- [x] </li> |
-| RNF0002 | User login | handleSignIn() | <a href="https://github.com/ProximaMicrosoft/Renaissance-Front-end/blob/master/src/pages/Admin/RegisterResident/index.tsx">authContext.tsx</a> | <li align="center">- [x] </li> |
-| RNF0003 | User logout | handleSignOut() | <a href="https://github.com/ProximaMicrosoft/Renaissance-Front-end/blob/master/src/pages/Admin/RegisterResident/index.tsx">authContext.tsx</a> | <li align="center">- [x] </li> |
-| RNF0004 | Register citizen | registerCitizen() | <a href="https://github.com/kingnaldoo/Covid-19/blob/main/src/contexts/citizenContext.tsx">citizenContext.tsx</a> | <li align="center">- [x] </li> |
-| RNF0005 | Citizens list | getCitizens() | <a href="https://github.com/kingnaldoo/Covid-19/blob/main/src/contexts/citizenContext.tsx">citizenContext.tsx</a> | <li align="center">- [x] </li> |
+| RF0001 | Create account | handleSignUp() | <a href="https://github.com/kingnaldoo/Covid-19/blob/main/src/contexts/authContext.tsx">authContext.tsx</a> | <li align="center">- [x] </li> |
+| RF0002 | User login | handleSignIn() | <a href="https://github.com/ProximaMicrosoft/Renaissance-Front-end/blob/master/src/pages/Admin/RegisterResident/index.tsx">authContext.tsx</a> | <li align="center">- [x] </li> |
+| RF0003 | User logout | handleSignOut() | <a href="https://github.com/ProximaMicrosoft/Renaissance-Front-end/blob/master/src/pages/Admin/RegisterResident/index.tsx">authContext.tsx</a> | <li align="center">- [x] </li> |
+| RF0004 | Register citizen | registerCitizen() | <a href="https://github.com/kingnaldoo/Covid-19/blob/main/src/contexts/citizenContext.tsx">citizenContext.tsx</a> | <li align="center">- [x] </li> |
+| RF0005 | Citizens list | getCitizens() | <a href="https://github.com/kingnaldoo/Covid-19/blob/main/src/contexts/citizenContext.tsx">citizenContext.tsx</a> | <li align="center">- [x] </li> |
 
 ## ✅ HOW TO USE?
 To download apk <a href="https://drive.google.com/file/d/1oiHoeg31Y0IYNPoRE08kLGD6WC0FawzT/view">click here</a>
